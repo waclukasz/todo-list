@@ -1,0 +1,144 @@
+#header,
+#activity,
+#list {
+    padding: 20px;
+}
+
+
+#app-container {
+    width: 650px;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+#header {
+    height: 270px;
+    background-image: url(../img/moutnain1.jpeg);
+    background-size: cover;
+    background-position: center;
+
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+}
+
+div.main {
+    width: 65%;
+}
+
+div.main,
+div.stats {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+div.stats {
+    width: 35%;
+    z-index: 10;
+}
+
+div.background {
+    position: absolute;
+    width: 36%;
+    height: 100%;
+    top: 0px;
+    right: 0;
+    background-color: rgba(51, 64, 97, 0.29);
+}
+
+div.tittle,
+div.time,
+div.status {
+    display: flex;
+    align-items: center;
+}
+
+div.tittle,
+div.group {
+    height: 80%;
+}
+
+div.time,
+div.status {
+    height: 20%;
+}
+
+div.tittle h1,
+div.time h2,
+div.group div,
+div.status h2 {
+    color: white;
+    font-weight: 300;
+}
+
+div.status {
+    text-align: right;
+}
+
+div.time h2,
+div.status h2{
+    font-size: 14px;
+}
+.status h2 {
+    width: 100%;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+div.line {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    width: 105%;
+    height: 4px;
+    background: linear-gradient(to right, #e4dece 20%, #1f2a4e96 80%);
+}
+
+div.group {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+div.personal,
+div.business {
+    width: 50%;
+    padding: 10%;
+    text-align: right;
+}
+
+div.personal > p,
+div.business > p {
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* -- Input Sections Syle Sheet -- */
+
+#activity {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 75px;
+    background-color: aqua;
+}
+
+#activity > input {
+    width: 80%;
+    height: 100%;
+    border: 0;
+}
+
+#activity > div {
+    height: 55px;
+    width: 55px;
+    background-color: white;
+    border-radius: 100%;
+}

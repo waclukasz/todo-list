@@ -1,16 +1,24 @@
+body {
+    background-color: #E6E8F1;
+    font-family: 'Open Sans';
+}
+
 #header,
 #activity,
 #list {
     padding: 20px;
 }
 
-
 #app-container {
-    width: 650px;
+    width: 500px;
+    min-height: 90vh;
     position: absolute;
     top: 6%;
-    left: 50%;
+    left: 40%;
     transform: translate(-50%, 0%);
+    box-shadow: 0px 0px 20px 6px #202b4f3d;
+
+    background-color: white;
 }
 
 #header {
@@ -81,9 +89,10 @@ div.status {
 }
 
 div.time h2,
-div.status h2{
+div.status h2 {
     font-size: 14px;
 }
+
 .status h2 {
     width: 100%;
     text-align: right;
@@ -94,7 +103,7 @@ div.line {
     position: absolute;
     bottom: -20px;
     left: -20px;
-    width: 105%;
+    width: 107.1%;
     height: 4px;
     background: linear-gradient(to right, #e4dece 20%, #1f2a4e96 80%);
 }
@@ -120,25 +129,159 @@ div.business > p {
 
 /* -- Input Sections Syle Sheet -- */
 
-#activity {
+.input-field {
+    padding: 20px;
+    position: relative;
+}
+
+div#list h3 {
+    font-family: 'Montserrat';
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 100;
+    color: #202c50;
+    margin-bottom: 35px;
+}
+
+div#list h3:last-of-type {
+    margin-top: 55px;
+}
+
+input#item {
+    width: 100%;
+    height: 50px;
+    border: 0px;
+    border-radius: 20px 50px 50px 20px;
+    outline: 0px;
+    background-color: #fbfbfb;
+    color: #1f2a4e;
+
+    text-indent: 20px;
+    font-size: 20px;
+}
+
+div.confirm {
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    text-align: center;
+
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: #1f2a4e;
+    
+    cursor: pointer;
+    transition: .2s all ease;
+}
+
+div.confirm:hover {
+    box-shadow: 0px 0px 10px #1f2a4e;
+}
+
+div.confirm div {
+    font-size: 15px;
+    color: white;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul#todo,
+ul#done {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+li.task {
     display: flex;
     flex-wrap: nowrap;
+    width: 100%;
+    position: relative;
     align-items: center;
-    justify-content: space-between;
-
-    height: 75px;
-    background-color: aqua;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 
-#activity > input {
-    width: 80%;
-    height: 100%;
-    border: 0;
+li.task::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: -15px;
+    border-bottom: 1px solid #d9d9d9;
 }
 
-#activity > div {
-    height: 55px;
-    width: 55px;
+div.task-field {
+    width: 75%;
+    padding-left: 20px;
+    color: #1f2a4e;
+}
+
+
+
+div.icons {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    width: 25%;
+}
+
+div.icons div {
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    margin-left: 15px;
+    text-align: center;
+    cursor: pointer;
+    
+    transition: .3s all ease;
+}
+
+div.icons div i {
+    font-size: 14px;
+}
+div.icons div:last-of-type i {
+    font-size: 25px;
+}
+
+div.icons div:first-of-type {
+    border: 2px solid #1bc559;
+    border-radius: 35px;
+    color: #1bc559;
+}
+
+div.icons div:first-of-type:hover {
+    color: white;
+    background-color: #1bc559;
+}
+
+div.icons div:last-of-type {
+    position: relative;
+}
+div.icons div:last-of-type:hover {
+    color: #b73a3a;
+}
+
+div.icons div:last-of-type::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -2px;
+    left: -5px;
+    width: 1px;
+    height: 35px;
+    background-color: rgba(128, 128, 128, 0.24);
+}
+
+/* Style button "Done" */
+
+div.icons div.done {
+    color: white;
+    background-color: #1bc559;
+}
+div.icons div.done:hover {
+    color: #1bc559;
     background-color: white;
-    border-radius: 100%;
 }

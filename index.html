@@ -7,10 +7,13 @@
 
 
     <!--    Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <!--    <link rel="stylesheet" href="css/font-awesome.min.css">-->
+    <link rel="stylesheet" href="css/fontawesome-all.css">
 
     <!-- Montserrat Font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400" rel="stylesheet">
+    <!--    Open Sans Font -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
 
     <!--    Main style Sheets -->
     <link rel="stylesheet" href="css/reset.css">
@@ -34,35 +37,73 @@
                 <div class="group">
                     <div class="personal">
                         <h2>24</h2>
-                        <p>Personal</p>
+                        <p>To do</p>
                     </div>
                     <div class="business">
                         <h2>15</h2>
-                        <p>Business</p>
+                        <p>Done</p>
                     </div>
                 </div>
                 <div class="status">
-                    <h2><span>65%</span> Done</h2>
+                    <h2><span>65%</span> completed</h2>
                 </div>
             </div>
             <div class="background"></div>
-            
-        </div>
-        <div id="activity">
-            <input type="text" id="item">
-            <div></div>
-        </div>
-        <div id="list">
-            <ul id="todo">
 
+        </div>
+
+        <div class="input-field">
+            <input type="text" id="item" placeholder="Enter what you planned">
+            <div id="add" class="confirm">
+                <div><i class="fas fa-plus"></i></div>
+            </div>
+        </div>
+
+        <div id="list">
+            <h3>Things TODO</h3>
+            <ul id="todo">
+                <li class="task">
+                    <div class="task-field">
+                        <p>Moje pierwsze zadanie</p>
+                    </div>
+                    <div class="icons">
+                        <div class="undone">
+                            <i class="fas fa-check"></i>
+                        </div>
+
+                        <div>
+                            <i class="far fa-trash-alt"></i>
+                        </div>
+                    </div>
+
+                </li>
             </ul>
 
+            <h3>Things Done</h3>
+
             <ul id="done">
+                <li class="task">
+                    <div class="task-field">
+                        <p>Moje pierwsze zadanie</p>
+                    </div>
+                    <div class="icons">
+                        <div class="done">
+                            <i class="fas fa-check"></i>
+                        </div>
+
+                        <div>
+                            <i class="far fa-trash-alt"></i>
+                        </div>
+                    </div>
+
+                </li>
 
             </ul>
         </div>
     </div>
 
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

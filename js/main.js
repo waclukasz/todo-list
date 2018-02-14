@@ -1,64 +1,75 @@
-// Creating complete Icon.
-var completeIcon = function (status) {
+document.getElementById('add').addEventListener('click', function () {
+    var value = document.getElementById('item').value;
+    if (value) {
+        addTask(value);
+    }
+})
 
-    var iconsBox = document.createElement('div');
-    iconsBox.className = status;
+function removeItem() {
+    var taskParent = this.parentNode.parentNode.parentNode.parentNode;
+    var task = this.parentNode.parentNode.parentNode;
 
-    var doneIcon = document.createElement('i');
-    doneIcon.className = 'fas fa-check';
-
-    iconsBox.appendChild(doneIcon);
-
-    return iconsBox;
+    taskParent.removeChild(task);
 }
 
-// Creating Remove Icon.
-var removeIcon = function () {
-    var iconsBox = document.createElement('div');
+function completeTask() {
+    var taskParent = this.parentNode.parentNode.parentNode;
+    var task = this.parentNode.parentNode;
+    var taskParentID = taskParent.id;
 
-    var doneIcon = document.createElement('i');
-    doneIcon.className = 'far fa-trash-alt';
-
-    iconsBox.appendChild(doneIcon);
-
-    return iconsBox;
+    var targetList = (taskParentID === 'todo') ? document.getElementById('done'): document.getElementById('todo');
+    
+    console.log(targetList);
+    console.log(task);
+    
+    targetList.appendChild(task);
 }
 
-function addTask() {
+// Adding new Task to Taks List
+function addTask(value) {
 
-    var addButton = document.getElementById('add');
-    add.addEventListener('click', function () {
+    var todoList = document.getElementById('todo');
 
-        var ToDoList = document.getElementById('todo');
-        var value = document.getElementById('item').value;
+    var task = document.createElement('li');
+    task.className = 'task';
 
-        if (value) {
+    var taskField = document.createElement('div');
+    taskField.className = 'task-field';
 
-            var item = document.createElement('li');
-            item.className = 'task';
+    var taskPar = document.createElement('p');
+    taskPar.innerText = value;
 
-            var taskField = document.createElement('div');
-            taskField.className = 'task-field';
-            item.appendChild(taskField);
+    var icons = document.createElement('div');
+    icons.className = 'icons';
 
-            var itemName = document.createElement('p');
-            itemName.innerText = value;
-            taskField.appendChild(itemName);
+    var complete = document.createElement('div');
+    complete.className = "complete"
 
-            ToDoList.appendChild(item);
+    var remove = document.createElement('div');
+    complete.className = "remove"
 
-            var iconsBox = document.createElement('div');
-            iconsBox.className = 'icons';
+    var iconComplete = document.createElement('i');
+    iconComplete.className = 'fas fa-check';
 
-            item.appendChild(iconsBox);
+    var iconRemove = document.createElement('i');
+    iconRemove.className = 'far fa-trash-alt';
 
-            iconsBox.appendChild(completeIcon('undone'));
-            iconsBox.appendChild(removeIcon());
+    todoList.appendChild(task);
+    task.appendChild(taskField);
+    task.appendChild(icons);
+    taskField.appendChild(taskPar);
+    icons.appendChild(complete);
+    complete.appendChild(iconComplete);
+    icons.appendChild(remove);
+    remove.appendChild(iconRemove);
 
-            document.getElementById('item').value = '';
-        }
+    // Clear input fild after adding element
+    document.getElementById('item').value = '';
 
-    })
+    // Click Event to remove Task
+    iconRemove.addEventListener('click', removeItem);
+
+    // Click Event to Complete or Undone Task 
+    complete.addEventListener('click', completeTask)
 
 }
-addTask();

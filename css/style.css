@@ -259,6 +259,7 @@ div.icons div:first-of-type:hover {
 
 div.icons div:last-of-type {
     position: relative;
+    color: #cbcdd4;
 }
 div.icons div:last-of-type:hover {
     color: #b73a3a;
@@ -277,11 +278,11 @@ div.icons div:last-of-type::after {
 
 /* Style button "Done" */
 
-div.icons div.done {
+#done div.icons div.complete {
     color: white;
     background-color: #1bc559;
 }
-div.icons div.done:hover {
+#done div.icons div.complete:hover {
     color: #1bc559;
     background-color: white;
 }

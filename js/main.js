@@ -1,9 +1,11 @@
+today();
+
 // Arrays of List made by user
 var loadedTask = (localStorage.getItem('savedList')) ? JSON.parse(localStorage.getItem('savedList')) : {
     todo: [],
     done: []
 }
-
+countTasks()
 // Render start List made by User
 startList();
 function startList() {
@@ -30,6 +32,20 @@ document.getElementById('add').addEventListener('click', function () {
 
         loadedTask.todo.push(value);
         savedList()
+        countTasks()
+    }
+})
+
+// Adding task by pushing Enter key
+document.getElementById('item').addEventListener('keydown', function (e) {
+    
+    var value = document.getElementById('item').value;
+    if (e.code === 'Enter' && value) {
+        addTask(value, 'todo');
+
+        loadedTask.todo.push(value);
+        savedList()
+        countTasks()
     }
 })
 
@@ -54,6 +70,7 @@ function removeItem() {
 
     taskParent.removeChild(task);
     savedList();
+    countTasks()
 
 
 }
@@ -78,6 +95,7 @@ function completeTask() {
 
     targetList.appendChild(task);
     savedList();
+    countTasks()
 
 }
 
@@ -136,4 +154,31 @@ function addTask(value, listID) {
 
     // Click Event to Complete or Undone Task 
     complete.addEventListener('click', completeTask)
+}
+
+function countTasks() {
+    var todoCounter = document.getElementById('todo-counter');
+    var doneCounter = document.getElementById('done-counter');
+    var percentDOM = document.getElementById('percent');
+    var percent;
+    
+    var todoCount =(loadedTask.todo.length) ? loadedTask.todo.length: 0;
+    var doneCount = (loadedTask.done.length) ? loadedTask.done.length: 0;
+    
+    percent = Math.round(todoCount / (todoCount + doneCount) * 100);
+    
+    todoCounter.innerText = todoCount;
+    doneCounter.innerText = doneCount;
+    
+    percentDOM.innerText = (percent) ? percent +'%' : 0 + '%';
+    
+    
+}
+
+function today() {
+    var d = new Date()
+    var taskData = document.getElementById('date');
+    var months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+    
+    taskData.innerText = d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear();
 }

@@ -11,7 +11,6 @@ body {
 
 #app-container {
     width: 500px;
-    min-height: 90vh;
     position: absolute;
     top: 6%;
     left: 40%;
@@ -129,6 +128,11 @@ div.business > p {
 
 /* -- Input Sections Syle Sheet -- */
 
+#list {
+    height: 55vh;
+    overflow: scroll;
+}
+
 .input-field {
     padding: 20px;
     position: relative;
@@ -170,7 +174,7 @@ div.confirm {
     right: 20px;
     top: 20px;
     background-color: #1f2a4e;
-    
+
     cursor: pointer;
     transition: .2s all ease;
 }
@@ -193,6 +197,29 @@ ul#todo,
 ul#done {
     display: flex;
     flex-direction: column-reverse;
+}
+
+ul#todo:empty::after {
+    content: "You got nothing to do";
+    font-size: 14px;
+    color: #cccccc;
+    width: 100%;
+    text-align: center;
+}
+
+ul#todo:empty::after {
+    content: "You got nothing to do";
+}
+ul#done:empty::after {
+    content: "Everything is done!"
+}
+
+ul#done:empty::after,
+ul#todo:empty::after {
+    font-size: 14px;
+    color: #cccccc;
+    width: 100%;
+    text-align: center;
 }
 
 li.task {
@@ -235,13 +262,14 @@ div.icons div {
     margin-left: 15px;
     text-align: center;
     cursor: pointer;
-    
+
     transition: .3s all ease;
 }
 
 div.icons div i {
     font-size: 14px;
 }
+
 div.icons div:last-of-type i {
     font-size: 25px;
 }
@@ -261,6 +289,7 @@ div.icons div:last-of-type {
     position: relative;
     color: #cbcdd4;
 }
+
 div.icons div:last-of-type:hover {
     color: #b73a3a;
 }
@@ -282,6 +311,7 @@ div.icons div:last-of-type::after {
     color: white;
     background-color: #1bc559;
 }
+
 #done div.icons div.complete:hover {
     color: #1bc559;
     background-color: white;

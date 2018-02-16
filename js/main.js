@@ -1,15 +1,10 @@
-today();
-
 // Arrays of List made by user
 var loadedTask = (localStorage.getItem('savedList')) ? JSON.parse(localStorage.getItem('savedList')) : {
     todo: [],
     done: []
 }
-countTasks()
 
 // Render start List made by User
-startList();
-
 function startList() {
     var listID;
 
@@ -26,31 +21,55 @@ function startList() {
 
 }
 
+
+startList();
+today();
+countTasks()
+
 // Adding Task by clicking on input button
 document.getElementById('add').addEventListener('click', function () {
     var value = document.getElementById('item').value;
-    if (value) {
-        addTask(value, 'todo');
+    var valueArray = value.split('');
+    var lastChar = valueArray[valueArray.length - 1];
 
+
+    if (value) {
+
+        for (i = 0; i < valueArray.length; i++) {
+            if (lastChar === " ") {
+                valueArray.pop();
+                lastChar = valueArray[valueArray.length - 1];
+                value = valueArray.join('');
+            }
+        }
+
+        addTask(value, 'todo');
         loadedTask.todo.push(value);
         savedList()
         countTasks()
-        console.log(loadedTask);
-
     }
 })
 
 // Adding task by pushing Enter key
 document.getElementById('item').addEventListener('keydown', function (e) {
-
     var value = document.getElementById('item').value;
-    if (e.code === 'Enter' && value) {
+    var valueArray = value.split('');
+    var lastChar = valueArray[valueArray.length - 1];
+
+    if (value && e.code === 'Enter' && value) {
+
+        for (i = 0; i < valueArray.length; i++) {
+            if (lastChar === " ") {
+                valueArray.pop();
+                lastChar = valueArray[valueArray.length - 1];
+                value = valueArray.join('');
+            }
+        }
         addTask(value, 'todo');
 
         loadedTask.todo.push(value);
         savedList()
         countTasks()
-        console.log(loadedTask);
 
     }
 })
@@ -77,34 +96,33 @@ function removeItem() {
     taskParent.removeChild(task);
     savedList();
     countTasks()
-
-    console.log(loadedTask);
-
 }
 
 // If task is completed
-function completeTask() {
-    var taskParent = this.parentNode.parentNode.parentNode;
+function completeTask(e) {
+    e.stopPropagation;
+
     var task = this.parentNode.parentNode;
+    var taskParent = task.parentNode;
     var taskParentID = taskParent.id;
     var value = task.childNodes[0].childNodes[0].innerText;
 
     if (taskParentID === 'todo') {
-        loadedTask.done.push(value);
         loadedTask.todo.splice(loadedTask.todo.indexOf(value), 1);
+        loadedTask.done.push(value);
+
     } else {
-        loadedTask.todo.push(value);
         loadedTask.done.splice(loadedTask.done.indexOf(value), 1);
+        loadedTask.todo.push(value);
     }
 
-
+    savedList();
     //Check where the task is located
     var targetList = (taskParentID === 'todo') ? document.getElementById('done') : document.getElementById('todo');
 
+    taskParent.removeChild(task);
     targetList.appendChild(task);
-    savedList();
     countTasks()
-    console.log(loadedTask);
 }
 
 // Adding new Task to Taks List

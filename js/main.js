@@ -11,16 +11,13 @@ function startList() {
     for (i = 0; i < loadedTask.todo.length; i++) {
         listID = 'todo';
         addTask(loadedTask.todo[i], listID);
-
     }
 
     for (j = 0; j < loadedTask.done.length; j++) {
         listID = 'done';
         addTask(loadedTask.done[j]);
     }
-
 }
-
 
 startList();
 today();
@@ -32,9 +29,7 @@ document.getElementById('add').addEventListener('click', function () {
     var valueArray = value.split('');
     var lastChar = valueArray[valueArray.length - 1];
 
-
     if (value) {
-
         for (i = 0; i < valueArray.length; i++) {
             if (lastChar === " ") {
                 valueArray.pop();
@@ -57,7 +52,6 @@ document.getElementById('item').addEventListener('keydown', function (e) {
     var lastChar = valueArray[valueArray.length - 1];
 
     if (value && e.code === 'Enter' && value) {
-
         for (i = 0; i < valueArray.length; i++) {
             if (lastChar === " ") {
                 valueArray.pop();
@@ -65,12 +59,11 @@ document.getElementById('item').addEventListener('keydown', function (e) {
                 value = valueArray.join('');
             }
         }
+        
         addTask(value, 'todo');
-
         loadedTask.todo.push(value);
         savedList()
         countTasks()
-
     }
 })
 
@@ -85,7 +78,6 @@ function removeItem() {
     var taskParent = task.parentNode;
     var parentID = taskParent.id;
     var value = task.childNodes[0].childNodes[0].innerText;
-
 
     if (parentID === 'todo') {
         loadedTask.todo.splice(loadedTask.todo.indexOf(value), 1);
@@ -156,7 +148,6 @@ function addTask(value, listID) {
     var iconRemove = document.createElement('i');
     iconRemove.className = 'far fa-trash-alt';
 
-
     if (listID === 'todo') {
         whichList = todoList;
     } else {
@@ -180,7 +171,6 @@ function addTask(value, listID) {
 
     // Click Event to Complete or Undone Task 
     complete.addEventListener('click', completeTask)
-
 }
 
 function countTasks() {
@@ -198,8 +188,6 @@ function countTasks() {
     doneCounter.innerText = doneCount;
 
     percentDOM.innerText = (percent) ? percent + '%' : 0 + '%';
-
-
 }
 
 function today() {

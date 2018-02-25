@@ -1,6 +1,7 @@
 body {
     background-color: #E6E8F1;
     font-family: 'Open Sans';
+    padding: 50px 10% 10% 10%;
 }
 
 #header,
@@ -11,13 +12,10 @@ body {
 
 #app-container {
     width: 500px;
-    position: absolute;
-    top: 6%;
-    left: 40%;
-    transform: translate(-50%, 0%);
     box-shadow: 0px 0px 20px 6px #202b4f3d;
 
     background-color: white;
+    margin: auto;
 }
 
 #header {

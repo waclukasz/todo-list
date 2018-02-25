@@ -1,0 +1,59 @@
+@media (max-width: 640px) {
+    body {
+        padding: 0;
+    }
+
+    #app-container {
+        width: 100%;
+        min-width: 360px;
+        overflow: hidden;
+    }
+
+    #header,
+    #activity,
+    #list {
+        padding: 10px;
+    }
+
+    #header {
+        height: 250px;
+        width: 100%;
+        position: fixed;
+        box-shadow: 0px 0px 20px rgba(88, 88, 88, 0.3);
+        z-index: 10;
+    }
+
+    #list {
+        height: auto;
+    }
+
+    div.line {
+        width: 230%;
+        bottom: -10px;
+        left: -10px;
+    }
+
+    div.background {
+        width: 43%;
+    }
+
+    div.stats {
+        width: 50%;
+    }
+
+    div.input-field {
+        padding: 280px 10px 10px 10px;
+    }
+
+    div.confirm {
+        top: 280px;
+        right: 10px;
+    }
+
+    div.icons div {
+        width: 25px;
+        height: 25px;
+        line-height: 20px;
+    }
+    
+}
